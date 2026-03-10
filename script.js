@@ -347,7 +347,7 @@ OBSERVAÇÃO
 
 TOTAL FINAL: R$ ${total.replace(".", ",")}`;
 
-  const numero = "5599999999999";
+  const numero = "5522999023944";
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
   setTimeout(() => {
