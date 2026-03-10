@@ -285,38 +285,38 @@ function atualizarStatusLoja() {
 }
 
 function finalizarPedido() {
-    if (!validarFormulario()) return;
+  if (!validarFormulario()) return;
 
-    const btn = document.getElementById("btn-finalizar");
-    const textoOriginal = btn.textContent;
-    btn.textContent = "Abrindo WhatsApp...";
-    btn.disabled = true;
+  const btn = document.getElementById("btn-finalizar");
+  const textoOriginal = btn.textContent;
+  btn.textContent = "Abrindo WhatsApp...";
+  btn.disabled = true;
 
-    const nome = document.getElementById("nome").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const endereco = document.getElementById("endereço").value.trim();
-    const bairro = document.getElementById("bairro").value;
-    const pagamento = document.getElementById("pagamento").value;
-    const observacao = document.getElementById("observacao").value.trim();
-    const cobertura = document.getElementById("cobertura").value || "Sem cobertura";
+  const nome = document.getElementById("nome").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const endereco = document.getElementById("endereco").value.trim();
+  const bairro = document.getElementById("bairro").value;
+  const pagamento = document.getElementById("pagamento").value;
+  const observacao = document.getElementById("observacao").value.trim();
+  const cobertura = document.getElementById("cobertura").value || "Sem cobertura";
 
-    const tamanho = getTamanhoSelecionado();
-    const tipoEntrega = getTipoEntrega();
-    const colher = document.querySelector('input[name="colher"]:checked')?.value || "Sim";
+  const tamanho = getTamanhoSelecionado();
+  const tipoEntrega = getTipoEntrega();
+  const colher = document.querySelector('input[name="colher"]:checked')?.value || "Sim";
 
-    const complementos = [...document.querySelectorAll(".complemento:checked")].map(i => i.dataset.nome);
-    const frutas = [...document.querySelectorAll(".fruta:checked")].map(i => i.dataset.nome);
-    const acrescimos = [...document.querySelectorAll(".acrescimo:checked")].map(i => i.dataset.nome);
+  const complementos = [...document.querySelectorAll(".complemento:checked")].map(i => i.dataset.nome);
+  const frutas = [...document.querySelectorAll(".fruta:checked")].map(i => i.dataset.nome);
+  const acrescimos = [...document.querySelectorAll(".acrescimo:checked")].map(i => i.dataset.nome);
 
-    const total = document.getElementById("total").textContent;
-    const numeroPedido = gerarNumeroPedido();
-    const dataHora = formatarDataHoraBonita();
+  const total = document.getElementById("total").textContent;
+  const numeroPedido = gerarNumeroPedido();
+  const dataHora = formatarDataHoraBonita();
 
-    const enderecoCompleto = tipoEntrega === "Retirar"
-        ? "Retirada no local"
-        : `${endereco} - ${bairro}`;
+  const enderecoCompleto = tipoEntrega === "Retirar"
+    ? "Retirada no local"
+    : `${endereco} - ${bairro}`;
 
-    const mensagem = `*NOVO PEDIDO - AÇAI SUPREMO*
+  const mensagem = `*NOVO PEDIDO - AÇAÍ SUPREMO*
 
 Pedido #${numeroPedido}
 Data: ${dataHora}
@@ -342,21 +342,20 @@ ENTREGA
 PAGAMENTO
 - Forma: ${pagamento}
 
-OBSERVACAO
-- ${observação || "Nenhuma"}
+OBSERVAÇÃO
+- ${observacao || "Nenhuma"}
 
 TOTAL FINAL: R$ ${total.replace(".", ",")}`;
 
-    const numero = "5522999023944";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+  const numero = "5599999999999";
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
-    setTimeout(() => {
-        window.open(url, "_blank");
-        btn.textContent = textoOriginal;
-        btn.disabled = false;
-    }, 400);
+  setTimeout(() => {
+    window.open(url, "_blank");
+    btn.textContent = textoOriginal;
+    btn.disabled = false;
+  }, 400);
 }
-
 const elementosReveal = document.querySelectorAll(".reveal");
 
 function animarAoScroll() {
