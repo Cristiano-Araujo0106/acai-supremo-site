@@ -294,7 +294,7 @@ function finalizarPedido() {
 
     const nome = document.getElementById("nome").value.trim();
     const telefone = document.getElementById("telefone").value.trim();
-    const endereco = document.getElementById("endereco").value.trim();
+    const endereco = document.getElementById("endereço").value.trim();
     const bairro = document.getElementById("bairro").value;
     const pagamento = document.getElementById("pagamento").value;
     const observacao = document.getElementById("observacao").value.trim();
@@ -316,7 +316,7 @@ function finalizarPedido() {
         ? "Retirada no local"
         : `${endereco} - ${bairro}`;
 
-    const mensagem = `*NOVO PEDIDO - ACAI SUPREMO*
+    const mensagem = `*NOVO PEDIDO - AÇAI SUPREMO*
 
 Pedido #${numeroPedido}
 Data: ${dataHora}
@@ -330,20 +330,20 @@ PEDIDO
 - Quantidade: ${quantidade}
 - Complementos: ${complementos.length ? complementos.join(", ") : "Nenhum"}
 - Frutas: ${frutas.length ? frutas.join(", ") : "Nenhuma"}
-- Acrescimos pagos: ${acrescimos.length ? acrescimos.join(", ") : "Nenhum"}
+- Acréscimos pagos: ${acrescimos.length ? acrescimos.join(", ") : "Nenhum"}
 - Cobertura: ${cobertura}
 - Colher: ${colher}
 
 ENTREGA
 - Tipo: ${tipoEntrega}
-- Endereco: ${enderecoCompleto}
+- Endereço: ${enderecoCompleto}
 - Taxa de entrega: R$ ${taxaEntregaAtual.toFixed(2).replace(".", ",")}
 
 PAGAMENTO
 - Forma: ${pagamento}
 
 OBSERVACAO
-- ${observacao || "Nenhuma"}
+- ${observação || "Nenhuma"}
 
 TOTAL FINAL: R$ ${total.replace(".", ",")}`;
 
